@@ -1,0 +1,82 @@
+<%= render partial: 'layouts/navbar' %>
+<!--  <div class="min-h-screen bg-gray-700 flex flex-col items-center justify-center relative px-4">
+    <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-30"
+        style="background-image: url('https://img.freepik.com/premium-photo/open-notebook-with-blank-pink-pages-red-pen_116441-6379.jpg');">
+    </div>
+    <p class="text-white text-xl md:text-2xl">
+    </p>
+        <div class="container mx-auto px-20 flex relative py-16">
+            <div class="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+                <% if user_signed_in? %>
+                <h1 class="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                 Welcome   <%= content_tag :span, current_user.first_name, class: "text-4xl sm:text-7xl" %>
+                </h1>
+                <% else %>
+                <h1 class="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                 Welcome   <span class="text-5xl sm:text-7xl "> Notebooky</span>
+                </h1>
+                <% end %>
+                <p class="text-sm sm:text-base text-gray-700 mt-4 dark:text-white">
+                 Almost every thing I do has its beginning in a notebook of some sort, usually written on a bus or train. Always carry a notebook. And I mean always.
+                </p>
+
+         <% if user_signed_in? %>
+                <div class="flex mt-8">
+                 <%= link_to " Read more", articles_path ,class:" animate-bounce uppercase py-2 px-8 bottom-0 left-0 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md"%> 
+                 </a>
+                </div>
+                <% else %>
+                <p class="text-md mt-4 sm:text-base text-gray-700 dark:text-pink-500">
+                    For a better experience Create an account 
+                </p>
+                <div class="flex mt-8">
+                 <%= link_to " Create Account ", new_user_registration_path ,class:" animate-bounce uppercase py-2 px-8 bottom-0 left-0 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md"%> 
+                 </a>
+                </div>       
+                 <% end %>
+
+        </div>
+</div>-->
+<div class="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:max-w-5xl lg:mt-32 xl:max-w-6xl">
+
+    <div class="w-full h-64 lg:w-3/5 lg:h-auto">
+        <img class="h-full w-full object-cover" src="https://img.freepik.com/premium-photo/open-notebook-with-blank-pink-pages-red-pen_116441-6379.jpg" alt="Notebook">
+    </div>
+
+    <div
+        class="max-w-lg bg-gradient-to-r from-gray-400 via-white to-gray-400 md:max-w-2xl md:z-10 md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-32 xl:ml-12">
+            <div class="flex flex-col p-12 md:px-16">
+                <% if user_signed_in? %>
+                <h1 class="font-bebas-neue uppercase  text-6xl sm:text-5xl font-black flex flex-col leading-none dark:text-blavk text-gray-800 lg:text-4xl">
+                 Welcome   <%= content_tag :span, current_user.first_name, class: "text-4xl sm:text-3xl" %>
+                </h1>
+                <% else %>
+                <h1 class="font-bebas-neue uppercase text-6xl sm:text-4xl font-black flex flex-col leading-none dark:text-black text-gray-800">
+                 Welcome   <span class="text-5xl sm:text-7xl "> To Notebooky</span>
+                </h1>
+                <% end %>
+                <p class="text-sm sm:text-base text-gray-700 mt-4 dark:text-black">
+                Whether you're a note-taking enthusiast, 
+                a writer, or someone who just loves to document 
+                thoughts and ideas, Notebooky is designed to be your perfect companion.          
+                </p>
+
+         <% if user_signed_in? %>
+                <div class="flex mt-8">
+                 <%= link_to " Read more", articles_path ,class:" animate-bounce uppercase py-2 px-8 bottom-0 left-0 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md"%> 
+                 </a>
+                </div>
+                <% else %>
+                <p class="text-md mt-4 sm:text-base text-gray-700 dark:text-pink-500">
+                    For a better experience Create an account 
+                </p>
+                <div class="flex mt-8">
+                 <%= link_to " Create Account ", new_user_registration_path ,class:" animate-bounce uppercase py-2 px-8 bottom-0 left-0 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md"%> 
+                 </a>
+                </div>       
+                 <% end %>
+        </div>
+    </div>
+</div>
+
+

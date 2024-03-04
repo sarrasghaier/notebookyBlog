@@ -1,0 +1,33 @@
+<%= form_with model: article, html: { class: 'max-w-lg mx-auto ' } do |form| %>
+  <div class="mb-4 mt-8">
+    <%= form.label :title, class: 'block text-gray-700 text-md font-bold mb-2' %><br>
+    <%= form.text_field :title, class: 'form-input w-full px-3 py-2 border focus:ring-pink-500 focus:border-pink-500 rounded-md shadow-black shadow-lg' %>
+    <% if flash[:error].present? && flash[:error][:title].present? %>
+      <div class="text-red-500 mt-1 text-sm"><%= flash[:error][:title].to_sentence %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :body, class: 'block text-gray-700 text-md font-bold mb-2 ' %><br>
+    <%= form.text_area :body, class: 'form-textarea w-full px-3 py-2 border focus:ring-pink-500 focus:border-pink-500 rounded-md shadow-black shadow-lg' %><br>
+    <% if flash[:error].present? && flash[:error][:body].present? %>
+      <div class="text-red-500 mt-1 text-sm"><%= flash[:error][:body].to_sentence %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :image, class: 'block text-gray-700 text-md font-bold mb-2' %>
+    <%= form.file_field :image, class: 'form-input w-full px-3 py-2 border focus:ring-pink-500 focus:border-pink-500 rounded-md shadow-black shadow-lg' %>
+  </div>
+
+  <div class="mb-4 ">
+    <%= form.label :status, class: 'block text-gray-700 text-md font-bold mb-2' %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: article.status || 'public'}, class: 'form-select w-full px-3 py-2 border focus:ring-pink-500 focus:border-pink-500 rounded-md shadow-black shadow-lg'%>
+  </div>
+
+  <div class="flex flex-wrap justify-center"> 
+    <%= form.submit class: 'flex  justify-center h-26 w-32 mx-auto sm:h-26 sm:w-32  border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-black rounded-xl  hover:bg-pink-200  my-6 py-2' %>
+    <%= link_to "Back",articles_path,class:'flex  justify-center h-26 w-32 mx-auto sm:h-26 sm:w-32  border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-black rounded-xl  hover:bg-pink-200  my-6 py-2'%>
+  </div>
+  
+<% end %>

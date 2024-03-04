@@ -1,0 +1,30 @@
+<%= render partial: 'layouts/navbar' %>
+
+
+<div class="text-3xl mx-auto my-6 font-bold  text-center text-pink-300  hover:text-pink-500 "> Notebooks </div>
+
+<div class="text-center text-xl mx-auto my-6 ">Our blog has <%= Article.count %> Notebooks and counting!</div>
+
+<div class="h-auto w-full mx-auto flex flex-wrap justify-center gap-4 mb-4 shadow-3xl  ">
+  
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <div class="h-auto max-w-7xl  mx-auto bg-gradient-to-r from-gray-300 via-white to-gray-300 p-28 rounded-lg shadow-xl ">
+        <%= link_to article.title, article, class: "text-xl  hover:text-pink-300  text-pink-400   text-center font-bold mb-2 block" %>
+              <% if article.image.attached? %>
+                <%= image_tag article.image, class: "w-40 h-48 mx-auto  object-cover mt-4  mb-2 transition-transform transform hover:scale-110 rounded-md"%>
+              <% else %>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3rgH8miiiJ4Mh4ngRtXZQcWZHVdIMeI9zDT_sHcIfSQ&s" class="w-40 h-48 mx-auto  object-cover mt-4  mb-2 transition-transform transform hover:scale-110 rounded-md">
+              <% end %>   
+              <% if article.body.length > 15 %>
+          <p class=" max-w-7xl text-gray hover:text-pink-300 " ><%= truncate(article.body, length: 40) %> <br>
+          <%= link_to 'See more', article,class:" max-w-7xl text-lg text-black hover:text-gray  text-pink-500  " %></p>
+        <% else %>
+          <p><%= article.body %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
